@@ -49,7 +49,11 @@ Note: on explicit endpoint call
 
 `quarkus extension add 'kubernetes'`
 
+`kubectl apply -f target/kubernetes/kubernetes.yml`
 
+`kubectl port-forward svc/demo 9090:80`
+
+`curl localhost:9090/hello -o -`
 
 ---
 
@@ -90,6 +94,7 @@ Note: on explicit endpoint call
 * https://github.com/cescoffier and other https://github.com/quarkusio/quarkus/graphs/contributors (multiple Java champions)
 * https://www.reactiveprinciples.org/
 * https://microservices.io/
+* https://smallrye.io/smallrye-reactive-messaging
 
 ---
 
