@@ -1,0 +1,52 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: demo
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+  name: demo
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: demo
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.kubernetes.io/name: demo
+  name: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/version: 1.0.0-SNAPSHOT
+      app.kubernetes.io/name: demo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/version: 1.0.0-SNAPSHOT
+        app.kubernetes.io/name: demo
+    spec:
+      containers:
+        - env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: QUARKUS_LAUNCH_DEVMODE
+              value: "true"
+          image: localhost:32000/bratuhia/demo:1.0.0-SNAPSHOT
+          imagePullPolicy: Always
+          name: demo
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP

@@ -54,12 +54,33 @@ Note: on explicit endpoint call
 `kubectl port-forward svc/demo 9090:80`
 
 `curl localhost:9090/hello -o -`
+`kubectl delete -f target/kubernetes/kubernetes.yml`
 
 ---
 
 # Demo
 
 ## Remote Dev
+
+* copy `kubernetes.yml` from `target/kubernetes` to `src/main/kubernetes`
+
+* add
+
+```
+- name: QUARKUS_LAUNCH_DEVMODE
+  value: "true"
+```
+
+to `Deployment.spec.template.spec.containers.spec.env`
+
+`kubectl apply -f src/main/kubernetes/kubernetes.yml`
+
+`kubectl port-forward svc/demo 9090:80`
+
+`mvn quarkus:remote-dev`
+
+
+Note: do not use in production!
 
 ---
 
