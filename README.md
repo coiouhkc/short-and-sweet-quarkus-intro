@@ -64,10 +64,16 @@ Note: on explicit endpoint call
 
 ---
 
+# Demo
+
+## Dev UI
+---
+
 # Further reading
 
 * https://quarkus.io/guides/
 * https://www.youtube.com/c/Quarkusio/videos
+* https://quarkus.io/guides/virtual-threads (since we were talking about it recently)
 * https://github.com/cescoffier and other https://github.com/quarkusio/quarkus/graphs/contributors (multiple Java champions)
 * https://www.reactiveprinciples.org/
 * https://microservices.io/
