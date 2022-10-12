@@ -14,6 +14,8 @@
 
 ## Init using command-line
 
+`quarkus create app org.abratuhi.quarkus:demo`
+
 ---
 
 # Demo
@@ -22,7 +24,6 @@
 
 * application.properties
 * endpoint (resource, controller)
-* service
 
 Note: on explicit endpoint call
 
