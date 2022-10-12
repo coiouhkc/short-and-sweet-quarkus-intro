@@ -67,6 +67,7 @@ Note: on explicit endpoint call
 # Further reading
 
 * https://quarkus.io/guides/
+* https://www.youtube.com/c/Quarkusio/videos
 * https://github.com/cescoffier and other https://github.com/quarkusio/quarkus/graphs/contributors (multiple Java champions)
 * https://www.reactiveprinciples.org/
 * https://microservices.io/
