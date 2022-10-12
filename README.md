@@ -105,6 +105,8 @@ Note: do not use in production!
 # Demo
 
 ## Dev UI
+
+See http://localhost:8080/q/dev/
 ---
 
 # Further reading
