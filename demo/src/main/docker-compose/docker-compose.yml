@@ -35,6 +35,6 @@ services:
       - "kafka"
 
   mosquitto:
-    image: eclipse-mosquitto:latest
+    image: eclipse-mosquitto:1.6.15 # starting with 1.7 the remote connect is disabled by default
     ports:
       - "1883:1883"
