@@ -94,6 +94,12 @@ Note: do not use in production!
 
 ## Native build
 
+`mvn package -Pnative`
+
+bratuhia/demo                              1.0.0-SNAPSHOT   d20adb5f0f44   About an hour ago   379MB
+vs
+bratuhia/demo                              1.0.0-SNAPSHOT   259f4e99bb9b   46 seconds ago   71.1MB
+
 ---
 
 # Demo
