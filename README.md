@@ -39,6 +39,18 @@ Note: on explicit endpoint call
 
 ## Docker & Kubernetes
 
+* Docker
+
+`quarkus extension add 'container-image-jib'`
+
+`mvn clean package`
+
+* Kubernetes
+
+`quarkus extension add 'kubernetes'`
+
+
+
 ---
 
 # Demo
