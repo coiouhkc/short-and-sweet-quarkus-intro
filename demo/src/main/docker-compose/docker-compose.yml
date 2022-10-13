@@ -24,16 +24,6 @@ services:
     links:
       - zookeeper
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop
-    restart: "no"
-    ports:
-      - "9000:9000"
-    environment:
-      KAFKA_BROKERCONNECT: "kafka:29092"
-    links:
-      - "kafka"
-
   mosquitto:
     image: eclipse-mosquitto:1.6.15 # starting with 1.7 the remote connect is disabled by default
     ports:

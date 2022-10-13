@@ -31,12 +31,6 @@ Note: on explicit endpoint call
 
 # Demo
 
-## Continuous test execution
-
----
-
-# Demo
-
 ## Docker & Kubernetes
 
 * Docker
@@ -88,6 +82,12 @@ Note: do not use in production!
 
 ## Reactive messaging
 
+MQTT -> Kafka with 2 annotations (and a bit of magic)
+
+`quarkus extension add 'quarkus-smallrye-reactive-messaging-mqtt'`
+
+`quarkus extension add 'quarkus-smallrye-reactive-messaging-kafka'`
+
 ---
 
 # Demo
@@ -104,7 +104,14 @@ bratuhia/demo                              1.0.0-SNAPSHOT   259f4e99bb9b   46 se
 
 # Demo
 
-## Test resources
+## Testing
+
+* Continuous testing (press 'r')
+* Test resources
+* Test profiles
+* And much more! 
+
+See https://quarkus.io/guides/getting-started-testing
 
 ---
 
