@@ -4,9 +4,28 @@
 
 ## Intro to Quarkus
 
+##### 10 things I like about quarkus [^1]
+
+[^1]: other modern also frameworks tend to get better (Micronaut, Helidon)
+
 ---
 
 # Intro, reason & background
+
+## A brief history of (my experience) time
+
+Deploying/testing new code version requires rebuild of whole application which (depending on the application size) might take from 1 coffee to a 3-course dinner.
+
+* Tomcat/ OSGi
+* Grails (slow reload)
+* Play! Framework on Java (awesome!)
+* Weblogic (project build and redeploy time >30 mins)
+* Spring Boot (live reload + devtools had to be added)
+* Payara
+
+and finally
+
+* Quarkus (reload on next request)
 
 ---
 
