@@ -128,6 +128,7 @@ bratuhia/demo                              1.0.0-SNAPSHOT   259f4e99bb9b   46 se
 * JPA + Postgres
 
 See https://quarkus.io/guides/dev-services
+See https://quarkus.io/guides/hibernate-reactive-panache
 
 ---
 

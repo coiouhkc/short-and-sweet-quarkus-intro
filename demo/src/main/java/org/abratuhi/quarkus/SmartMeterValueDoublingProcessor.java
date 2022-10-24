@@ -15,10 +15,6 @@ public class SmartMeterValueDoublingProcessor {
     public Record<String, String> x2(byte[] bytes) {
         String str = new String(bytes);
 
-        if (str == null) {
-            return null;
-        }
-
         return Record.of(str, str + str);
     }
 }
