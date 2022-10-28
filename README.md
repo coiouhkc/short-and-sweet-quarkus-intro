@@ -140,6 +140,7 @@ See https://quarkus.io/guides/hibernate-reactive-panache
 * Test resources
 * Test profiles
 * And much more!
+  * Database-rider?
 
 See https://quarkus.io/guides/getting-started-testing
 
