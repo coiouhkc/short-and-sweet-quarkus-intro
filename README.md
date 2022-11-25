@@ -4,9 +4,10 @@
 
 ## Intro to Quarkus
 
-##### 10 things I like about quarkus [^1]
+aka "10 things I like about quarkus" 
 
-[^1]: other modern also frameworks tend to get better (Micronaut, Helidon)
+
+Note: other modern also frameworks tend to get better (Micronaut, Helidon)
 
 ---
 
@@ -116,7 +117,9 @@ MQTT -> Kafka with 2 annotations (and a bit of magic)
 `mvn package -Pnative`
 
 bratuhia/demo                              1.0.0-SNAPSHOT   d20adb5f0f44   About an hour ago   379MB
+
 vs
+
 bratuhia/demo                              1.0.0-SNAPSHOT   259f4e99bb9b   46 seconds ago   71.1MB
 
 ---
