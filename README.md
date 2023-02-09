@@ -1,4 +1,12 @@
 ---
+marp: true
+title: Short and sweet Quarkus Intro
+description: Short and sweet Quarkus Intro
+theme: uncover
+paginate: true
+_paginate: false
+
+---
 
 # Short and sweet
 
@@ -17,25 +25,26 @@ Note: other modern also frameworks tend to get better (Micronaut, Helidon)
 
 Deploying/testing new code version requires rebuild of whole application which (depending on the application size) might take from 1 coffee to a 3-course dinner.
 
+---
+
+# Intro, reason & background (contd.)
+
 * Tomcat/ OSGi
 * Grails (slow reload)
 * Play! Framework on Java (awesome!)
 * Weblogic (project build and redeploy time >30 mins)
 * Spring Boot (live reload + devtools had to be added)
 * Payara
-
-and finally
-
-* Quarkus (reload on next request)
+* __Quarkus (reload on next request)__
 
 ---
 
 # Demo
 
 ## Init using command-line
-
+<!--
 `quarkus create app org.abratuhi.quarkus:demo`
-
+-->
 ---
 
 # Demo
@@ -55,12 +64,14 @@ Note: on explicit endpoint call
 
 * Docker
 
+<!--
 `quarkus extension add 'container-image-jib'`
 
 `mvn clean package`
+-->
 
 * Kubernetes
-
+<!--
 `quarkus extension add 'kubernetes'`
 
 `kubectl apply -f target/kubernetes/kubernetes.yml`
@@ -69,6 +80,7 @@ Note: on explicit endpoint call
 
 `curl localhost:9090/hello -o -`
 `kubectl delete -f target/kubernetes/kubernetes.yml`
+-->
 
 ---
 
@@ -76,6 +88,7 @@ Note: on explicit endpoint call
 
 ## Remote Dev
 
+<!--
 * copy `kubernetes.yml` from `target/kubernetes` to `src/main/kubernetes`
 
 * add
@@ -92,7 +105,7 @@ to `Deployment.spec.template.spec.containers.spec.env`
 `kubectl port-forward svc/demo 9090:80`
 
 `mvn quarkus:remote-dev`
-
+-->
 
 Note: do not use in production!
 
@@ -104,9 +117,11 @@ Note: do not use in production!
 
 MQTT -> Kafka with 2 annotations (and a bit of magic)
 
+<!--
 `quarkus extension add 'quarkus-smallrye-reactive-messaging-mqtt'`
 
 `quarkus extension add 'quarkus-smallrye-reactive-messaging-kafka'`
+-->
 
 ---
 
@@ -114,13 +129,15 @@ MQTT -> Kafka with 2 annotations (and a bit of magic)
 
 ## Native build
 
+<!--
 `mvn package -Pnative`
+-->
 
-bratuhia/demo                              1.0.0-SNAPSHOT   d20adb5f0f44   About an hour ago   379MB
+bratuhia/demo 1.0.0-SNAPSHOT 379MB
 
 vs
 
-bratuhia/demo                              1.0.0-SNAPSHOT   259f4e99bb9b   46 seconds ago   71.1MB
+bratuhia/demo 1.0.0-SNAPSHOT 71.1MB
 
 ---
 
@@ -169,5 +186,3 @@ See http://localhost:8080/q/dev/
 ---
 
 # Q&A
-
----
