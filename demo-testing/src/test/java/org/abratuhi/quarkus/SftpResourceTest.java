@@ -10,6 +10,8 @@ import org.apache.http.HttpStatus;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Test;
 
+import javax.inject.Inject;
+
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -17,41 +19,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 @QuarkusTest
 @TestProfile(SftpTestProfile.class)
 public class SftpResourceTest {
-  @ConfigProperty(name = "app.sftp.host")
-  String sftpHost;
-
-  @ConfigProperty(name = "app.sftp.port")
-  Integer sftpPort;
-
-  @ConfigProperty(name = "app.sftp.user")
-  String sftpUser;
-
-  @ConfigProperty(name = "app.sftp.password")
-  String sftpPassword;
+  @Inject
+  SshClientFactory sshClientFactory;
 
   @Test
   void fileIsUploaded() {
-    try {
-      SSHClient client = new SSHClient();
-      client.addHostKeyVerifier(new PromiscuousVerifier());
-      client.connect(sftpHost, sftpPort);
-      client.authPassword(sftpUser, sftpPassword);
-
-      SFTPClient sftp = client.newSFTPClient();
-
+    try (
+        SSHClient sshClient = sshClientFactory.getClient();
+        SFTPClient sftp = sshClient.newSFTPClient()
+    ) {
+      // precondition/ pre-assert
       assertThat(sftp.ls("upload")).hasSize(0);
 
+      // action
       given()
           .when().post("/sftp")
           .then()
           .statusCode(HttpStatus.SC_CREATED);
 
+      // postcondition/ assert
       assertThat(sftp.ls("upload")).hasSize(1);
       assertThat(sftp.ls("upload").get(0).getName()).contains(".zshrc");
 
-      sftp.close();
-
-      client.close();
     } catch (Exception e) {
       log.error(e);
     }
